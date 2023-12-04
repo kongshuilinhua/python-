@@ -97,6 +97,6 @@ def GMI():
 def LGMI():
     return list(map(lambda x: int(x) - 1, input().split()))
 
-
+sys.setrecursionlimit(int(1e5 + 10))
 dx, dy = [0, 1, 0, -1, 1, -1, 1, -1], [1, 0, -1, 0, -1, -1, 1, 1]
 inf = float('inf')
