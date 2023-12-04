@@ -25,7 +25,7 @@ for i in range(1, n + 1):
     h[i] = (h[i - 1] * P + ord(s[i])) % Q  # 字符串前缀和
 
 # 区间和公式的理解: ABCDE 与 ABC 的前三个字符值是一样，只差两位，
-# 乘上P的二次方把 ABC 变为 ABC00，再用 ABCDE - ABC00 得到 DE 的哈希值。
+# 乘上P的二次方把 ABC 变为 ABC00, 再用 ABCDE - ABC00 得到 DE 的哈希值。
 def query(l, r):
     return (h[r] - h[l - 1] * p[r - l + 1]) % Q
 

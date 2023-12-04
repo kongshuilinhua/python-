@@ -15,10 +15,12 @@ def st():  # f[i,j]为以第i个数为起点，长度为2^j的一段区间中的
             f[i][j] = max(f[i][j - 1], f[i + (1 << j - 1)][j - 1])
             i += 1
 
+# 数组下标，查询下标都从0开始
 def query(l, r):
     k = int(math.log2(r - l + 1))  # 2 ^ k <= length
-    res = max(f[l - 1][k], f[r - (1 << k)][k])  # 可能重叠的两段，下标是1开始的，一段依附l，一段依附r
+    res = max(f[l][k], f[r - (1 << k) + 1][k])  # 可能重叠的两段，下标是0开始的，一段依附l，一段依附r
     return res
+
 
 st()
 for _ in range(m):

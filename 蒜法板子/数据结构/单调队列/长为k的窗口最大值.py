@@ -27,3 +27,22 @@ class MyQueue: #单调队列（从大到小
     #查询当前队列里的最大值 直接返回队列前端也就是front就可以了。
     def front(self):
         return self.queue[0]
+    
+
+"""
+# LC 239. 滑动窗口最大值
+class Solution:
+    def maxSlidingWindow(self, nums: List[int], k: int) -> List[int]:
+        q = deque()
+        res = []
+        for i, x in enumerate(nums):
+            while q and nums[q[-1]] <= x:
+                q.pop()
+            q.append(i)
+            while q and i - q[0] + 1 > k:
+                q.popleft()
+            if i >= k - 1:
+                res.append(nums[q[0]])
+        return res
+
+"""
