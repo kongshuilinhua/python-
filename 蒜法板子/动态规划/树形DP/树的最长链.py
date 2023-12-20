@@ -1,11 +1,8 @@
-'''
-Descripttion: your project
-version: 1.0
-Author: ElysiaRealme
-Date: 2023-10-19 00:15:35
-LastEditors: ElysiaRealme
-Language: Python
-'''
+"""
+给定一棵树,树中包含n个结点编号1~n和n-1条无向边,每条边都有一个权值。
+现在请你找到树中的一条最长路径。
+换句话说，要找到一条路径，使得使得路径两端的点的距离最远。
+"""
 
 """
 n = II()

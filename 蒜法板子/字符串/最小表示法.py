@@ -20,7 +20,6 @@ def get_min(sec):
                 i += 1
             k = 0
     i = min(i, j)
-    sec += sec
-    return sec[i:i+n]
+    return sec[i:] + sec[:i]
 
 """

@@ -1,11 +1,4 @@
-'''
-Descripttion: your project
-version: 1.0
-Author: ElysiaRealme
-Date: 2023-09-18 16:15:37
-LastEditors: ElysiaRealme
-Language: Python
-'''
+
 '''
 # O(n^3)
 N = 210
@@ -24,4 +17,4 @@ for _ in range(m):
     x, y, z = map(int, input().split())
     d[x][y] = min(d[x][y], z)  # 防止有重边
 floyd()
-'''
+''' 
