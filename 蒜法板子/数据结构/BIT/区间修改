@@ -1,11 +1,4 @@
-'''
-Descripttion: your project
-version: 1.0
-Author: ElysiaRealme
-Date: 2023-09-28 15:26:16
-LastEditors: ElysiaRealme
-Language: Python
-'''
+
 from collections import defaultdict
 class Solution:
     def fullBloomFlowers(self, flowers: List[List[int]], persons: List[int]) -> List[int]:

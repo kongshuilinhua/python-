@@ -1,11 +1,4 @@
-'''
-Descripttion: your project
-version: 1.0
-Author: ElysiaRealme
-Date: 2023-09-09 21:08:08
-LastEditors: ElysiaRealme
-Language: Python
-'''
+
 class LazySegmentTree:
     
     def __init__(self, nums) -> None:

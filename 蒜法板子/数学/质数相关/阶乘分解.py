@@ -1,11 +1,3 @@
-'''
-Descripttion: your project
-version: 1.0
-Author: ElysiaRealme
-Date: 2023-10-06 16:13:12
-LastEditors: ElysiaRealme
-Language: Python
-'''
 N = int(1e6 + 10)
 is_prime = [True] * N
 
@@ -24,14 +16,11 @@ def find(n):
 
 n = int(input())
 
-prime = find(n + 1)
-for i in range(2, n + 1):
-    if not is_prime[i]:
-        continue
+prime = find(n)  # 直接枚举
+for i in prime:
     res = 0
     j = i
-    while j <= n:
+    while j <= n:  # 阶乘中i以及i的倍数的个数
         res += n // j
         j *= i
     print(i, res)
-
