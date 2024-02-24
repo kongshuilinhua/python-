@@ -1,5 +1,5 @@
 # 包含三个shs的方案数 https://www.matiji.net/exam/brushquestion/17/4347/179CE77A7B772D15A8C00DD8198AAC74?from=1
-
+# 包含两个red的情况https://ac.nowcoder.com/acm/contest/72779/D  需要分析转移状态
 """
 mod = int(1e9 + 7)
 n = II()

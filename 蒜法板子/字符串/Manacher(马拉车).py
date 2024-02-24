@@ -14,3 +14,33 @@ for i in range(1, len(s2) - 1):
         r = i + P[i]
         mid = i
 print(max(P) - 1)
+
+class Manacher:
+    def __init__(self, string=''):
+        self.string = string
+
+    def add_char(self):
+        add_string = '^'
+        for char in self.string:
+            add_string += '@' + char
+        add_string += '@*'
+        return add_string
+    
+    def get_p(self): 
+        self.add_string = self.add_char()
+        self.P = [0] * len(self.add_string)
+        R, mid = 0, 0
+        for i in range(1, len(self.add_string)-1):
+            self.P[i] = min(self.P[mid*2-i], R-i) if R > i else 0
+            while self.add_string[i+1+self.P[i]] == self.add_string[i-1-self.P[i]]:
+                self.P[i] +=1
+            if i + self.P[i] > R:
+                R = i + self.P[i]
+                mid = i
+        return self.P
+    
+    def check_partition_s(self, l, r): # 判断在串S的区间[l,r]的子串是否为回文串。
+        l, r = l * 2 + 2, r * 2 + 2
+        mid = (l + r) // 2
+        return self.P[mid] > r - mid
+

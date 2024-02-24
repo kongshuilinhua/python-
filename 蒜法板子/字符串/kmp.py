@@ -26,5 +26,5 @@ def kmp(p: str, s: str):    # p是模式串， s是模板串（在s中找p）
             j = ne[j]
         j += s[i] == p[j + 1]
         if j == n:
-            print(i - j, end=' ')
+            print(i - j, end=' ')   # 打印匹配成功的起始下标
             j = ne[j]

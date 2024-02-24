@@ -1,13 +1,3 @@
-'''
-Descripttion: your project
-version: 1.0
-Author: ElysiaRealme
-Date: 2023-10-18 10:14:22
-LastEditors: ElysiaRealme
-Language: Python
-'''
-
-
 # h[i]前i个字符的hash值
 # 字符串变成一个p进制数字，体现了字符+顺序，需要确保不同的字符串对应不同的数字
 # P = 131 Q = 32或  13331 Q=2^64，在99%的情况下不会出现冲突

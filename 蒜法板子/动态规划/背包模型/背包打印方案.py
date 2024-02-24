@@ -47,3 +47,25 @@ for i in range(1, n + 1):  # 优先取小的
         print(i, end=' ')
         j -= v[i]
 """
+
+
+# 完全背包的方案  #LChttps://leetcode.cn/problems/form-largest-integer-with-digits-that-add-up-to-target/description/
+"""
+class Solution:
+    def largestNumber(self, cost: List[int], m: int) -> str:
+        f = [-inf] * (m + 1)
+        f[0] = 0
+        for i in range(9):
+            for j in range(cost[i], m + 1):
+                f[j] = max(f[j], f[j - cost[i]] + 1)
+        if f[m] == -inf:
+            return "0"
+        res = []
+        for i in range(8, -1, -1):
+            v = cost[i]
+            while m >= v and f[m] == f[m - v] + 1:
+                res.append(i + 1)
+                m -= v
+        return "".join(map(str, res))
+        
+"""

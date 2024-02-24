@@ -1,66 +1,101 @@
-'''
-Descripttion: your project
-version: 1.0
-Author: ElysiaRealme
-Date: 2023-10-30 20:00:36
-LastEditors: ElysiaRealme
-Language: Python
-'''
-"""
-给你一个下标从 0 开始的整数数组 nums 。
-nums 一个长度为 k 的 子序列 指的是选出 k 个 下标 i0 < i1 < ... < ik-1 ，如果这个子序列满足以下条件，我们说它是 平衡的 :
-对于范围 [1, k - 1] 内的所有 j ,nums[ij] - nums[ij-1] >= ij - ij-1 都成立。
-nums 长度为 1 的 子序列 是平衡的。
-请你返回一个整数，表示 nums 平衡 子序列里面的 最大元素和 。
-一个数组的 子序列 指的是从原数组中删除一些元素（也可能一个元素也不删除）后，剩余元素保持相对顺序得到的 非空 新数组。
-"""
-from typing import List
+import sys
+import os
+
+# import time
+from bisect import bisect_left, bisect_right
+# import functools
+from math import ceil, floor, gcd, factorial, sqrt, log2, log
+import random
+# import re
+from collections import Counter, defaultdict, deque
+# from copy import deepcopy
+from functools import cmp_to_key, lru_cache, reduce
+from heapq import heapify, heappop, heappush, heappushpop, nlargest, nsmallest
+from itertools import accumulate, combinations, permutations
+from operator import add, iand, ior, itemgetter, mul, xor
+from string import ascii_lowercase, ascii_uppercase
+from typing import *
+
+input = lambda: sys.stdin.readline().rstrip("\r\n")
 
 
-from bisect import *
+def I():
+    return input()
 
 
-class BIT:
-    def __init__(self, n):
-        self.tree = [0] * n  # 注意下标从1开始
+def II():
+    return int(input())
 
-    def lowbit(self, x):
-        return x & (-x)
 
-    # arr[i] += val
-    def update(self, i, val):
-        while i < len(self.tree):
-            self.tree[i] = max(self.tree[i], val)
-            i += self.lowbit(i)
+def MII():
+    return map(int, input().split())
 
-    # 返回arr[:i+1]的sum
-    def query(self, i):
-        res = 0
-        while i > 0:
-            res = max(self.tree[i], res)
-            i -= self.lowbit(i)
-        return res
 
+def LI():
+    return list(input().split())
+
+
+def LII():
+    return list(map(int, input().split()))
+
+
+def GMI():
+    return map(lambda x: int(x) - 1, input().split())
+
+
+def LGMI():
+    return list(map(lambda x: int(x) - 1, input().split()))
+
+# sys.setrecursionlimit(int(1e5 + 10))根据需要调整递归深度
+dx, dy = [0, 1, 0, -1, 1, -1, 1, -1], [1, 0, -1, 0, -1, -1, 1, 1]
+inf = float('inf')
+# RANDOM = random.randint(int(1e9 + 7), int(2e9 + 7)) # 防止卡哈希
+mod = int(1e9 + 7)
+# mod = 998244353
 
 class Solution:
-    def maxBalancedSubsequenceSum(self, nums: List[int]) -> int:
-        n = len(nums)
-        inf = float('inf')
-        a = sorted(set([x - i for i, x in enumerate(nums)]))
-        d = {x: i + 1 for i, x in enumerate(a)}
-        tree = BIT(len(a) + 10)
-        f = [0] * n
-        for i, x in enumerate(nums):
-            v = d[x - i]
-            f[i] = x + tree.query(v)
-            tree.update(v, f[i])
-        return max(f)
+    def placeWordInCrossword(self, g: List[List[str]], word: str) -> bool:
+        n, m = len(g), len(g[0])
+        k = len(word)
+        def find1(x):
+            a = []
+            for i in range(n):
+                st = -1
+                j = 0
+                while j < m:
+                    if g[i][j] == x:
+                        st = j
+                        while j < m and g[i][j] == x:
+                            j += 1
+                        if (j - st + 1) >= k:
+                            return True
+                    else:
+                        j += 1
+            return False
+        def find2(x):
+            for row in zip(*g):
+                st = -1
+                j = 0
+                while j < n:
+                    if row[j] == x:
+                        st = j
+                        while j < n and row[j] == x:
+                            j += 1
+                        if (j - st + 1) >= k:
+                            return True
+                    else:
+                        j += 1
+            return False
+        res1 = find1(word[0]) | find1(word[-1])
+        res2 = find2(word[0]) | find2(word[-1])
+        return res1 or res2
 
-# 使用方法
-# edges 是边的列表，values 是节点的值的列表
-# 函数返回可以获得的最大分数
 s = Solution()
-a = list(map(int, input().split()))
-print(s.maxBalancedSubsequenceSum(a))
-
-
+g = [["#"," ","#"],[" "," ","#"],["#"," ","c"]]
+word = "ca"
+res = s.placeWordInCrossword(g, word)
+print(res)
+g = [["#"," ","#"],[" "," ","#"],["#","c"," "]]
+word = "abc"
+res = s.placeWordInCrossword(g, word)
+print(res)

@@ -1,11 +1,3 @@
-'''
-Descripttion: your project
-version: 1.0
-Author: ElysiaRealme
-Date: 2023-09-09 21:08:08
-LastEditors: ElysiaRealme
-Language: Python
-'''
 # 每种物品有数量限制
 def f():
     N = 1100
@@ -23,6 +15,8 @@ def f():
     return f[n][m]
 
 # 滚动优化，和01背包是同样的思路，需要逆序
+# 枚举方案数https://leetcode.cn/problems/number-of-ways-to-earn-points/description/
+# 记得从物品1开始，否则就重复了
 """
 ## 复杂度n * m * s
 for i in range(1, n + 1):
