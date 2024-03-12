@@ -1,4 +1,19 @@
 
+class UnionFind:
+    def __init__(self, n):
+        self.parent = list(range(n))
+
+    def find(self, a):
+        acopy = a
+        while a != self.parent[a]:
+            a = self.parent[a]
+        while acopy != a:
+            self.parent[acopy], acopy = a, self.parent[acopy]
+        return a
+
+    def union(self, a, b):
+        self.parent[self.find(b)] = self.find(a)
+
 # 递归实现
 """
 p = [i for i in range(n + 1)]
@@ -23,3 +38,4 @@ def find(x):
     return x
 
 """
+

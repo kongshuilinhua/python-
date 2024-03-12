@@ -18,7 +18,7 @@ def find_prime(n):
         while i * prime[j] <= n:      # 未越界，划掉
             is_prime[i * prime[j]] = False
             # 若i是质数，最多枚举到自身中断
-            # 若i是荷属，最多枚举到i的最小质因数中断
+            # 若i是合数，最多枚举到i的最小质因数中断
             if i % prime[j] == 0:  # 不是最小质因数了，退出，防止重复筛
                 break
             j += 1

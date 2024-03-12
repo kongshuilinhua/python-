@@ -18,6 +18,32 @@ from typing import *
 
 input = lambda: sys.stdin.readline().rstrip("\r\n")
 
+# --------------------
+# 手写栈模板
+# 克服py栈太浅的问题
+from types import GeneratorType
+
+
+def bootstrap(f, stack=[]):
+    def wrappedfunc(*args, **kwargs):
+        if stack:
+            return f(*args, **kwargs)
+        else:
+            to = f(*args, **kwargs)
+            while True:
+                if type(to) is GeneratorType:
+                    stack.append(to)
+                    to = next(to)
+                else:
+                    stack.pop()
+                    if not stack:
+                        break
+                    to = stack[-1].send(to)
+            return to
+
+    return wrappedfunc
+# --------------------
+
 
 def I():
     return input()
@@ -52,11 +78,7 @@ inf = float('inf')
 # RANDOM = random.randint(int(1e9 + 7), int(2e9 + 7)) # 防止卡哈希
 mod = int(1e9 + 7)
 # mod = 998244353
-"""
-需要取模吗？
-需要bootstrap吗?
-递归深度需要调整吗？
-"""
+
 def solve():
 
 
