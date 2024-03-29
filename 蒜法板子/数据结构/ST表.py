@@ -1,3 +1,8 @@
+
+# nlogn区间RMQ问题
+# 二维区间RMQ问题：https://www.luogu.com.cn/problem/P2216（暂未整理）
+
+
 import math
 N = 200010
 M = 18

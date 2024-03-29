@@ -1,11 +1,4 @@
-'''
-Descripttion: your project
-version: 1.0
-Author: ElysiaRealme
-Date: 2023-09-09 21:08:08
-LastEditors: ElysiaRealme
-Language: Python
-'''
+
 """
 维护一个字符串集合，支持两种操作：
 I x 向集合中插入一个字符串 x

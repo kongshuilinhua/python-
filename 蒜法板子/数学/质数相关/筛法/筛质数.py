@@ -22,4 +22,4 @@ def find_prime(n):
             if i % prime[j] == 0:  # 不是最小质因数了，退出，防止重复筛
                 break
             j += 1
-    return len(prime)
+    return prime
