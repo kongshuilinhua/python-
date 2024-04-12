@@ -176,7 +176,7 @@ def solve():
 
 if __name__ == '__main__':
     # 1多组数据，0单组数据
-    t = 1     
+    t = 0   
     if t:
         t = II()
         for _ in range(t):

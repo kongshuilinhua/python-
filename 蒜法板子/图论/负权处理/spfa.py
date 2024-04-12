@@ -1,14 +1,5 @@
-'''
-Descripttion: your project
-version: 1.0
-Author: ElysiaRealme
-Date: 2023-10-06 15:26:33
-LastEditors: ElysiaRealme
-Language: Python
-'''
 
 """
-
 def spfa():
     dis = [inf] * (n+ 1)
     dis[1] = 0

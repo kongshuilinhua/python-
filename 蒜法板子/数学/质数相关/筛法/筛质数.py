@@ -12,7 +12,7 @@ def find_prime(n):
     prime = []
     # 从小到大枚举每个数，当前数字没被划掉，就是质数
     for i in range(2, n + 1):
-        if is_prime[i]:   # 如果当前
+        if is_prime[i]:   # 如果当前是质数
             prime.append(i)
         j = 0
         while i * prime[j] <= n:      # 未越界，划掉
