@@ -105,7 +105,7 @@ while T:
         edges.append((x1, y1, y2, 1))
         edges.append((x2, y1, y2, -1))
     s = sorted(s)  # 离散化y坐标
-    edges.sort()  # 按x坐标排序
+    edges.sort()   # 按x坐标排序
     m = len(s)
     mp = {x: i for i, x in enumerate(s)}
     tr = [TreeNode() for _ in range(m * 4)]

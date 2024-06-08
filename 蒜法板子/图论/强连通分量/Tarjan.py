@@ -1,11 +1,70 @@
-'''
-Descripttion: your project
-version: 1.0
-Author: ElysiaRealme
-Date: 2023-10-11 09:57:06
-LastEditors: ElysiaRealme
-Language: Python
-'''
+# 缩点模板 https://www.luogu.com.cn/record/159334791
+
+# 返回每个scc中点的集合
+def find_SCC(graph):
+    SCC, S, P = [], [], []
+    depth = [0] * len(graph)
+ 
+    stack = list(range(len(graph)))
+    while stack:
+        node = stack.pop()
+        if node < 0:
+            d = depth[~node] - 1
+            if P[-1] > d:
+                SCC.append(S[d:])
+                del S[d:], P[-1]
+                for node in SCC[-1]:
+                    depth[node] = -1
+        elif depth[node] > 0:
+            while P[-1] > depth[node]:
+                P.pop()
+        elif depth[node] == 0:
+            S.append(node)
+            P.append(len(S))
+            depth[node] = len(S)
+            stack.append(~node)
+            stack += graph[node]
+    return SCC[::-1]
+
+def get_newg(scc):
+    ID = [0] * n
+    scc_cnt = 0
+    scc_w = [0] * n
+    for v in scc:
+        for i in v:
+            ID[i] = scc_cnt
+            scc_w[scc_cnt] += w[i]
+        scc_cnt += 1
+        
+    new_g = [[] for _ in range(n)]
+    left = [0] * n
+    for i in range(n):
+        for j in g[i]:
+            a, b = ID[i], ID[j]
+            if a == b:
+                continue
+            new_g[a].append(b)
+            left[b] += 1
+    return new_g, left, scc_w
+
+
+n, m = MII()
+g = [[] for _ in range(n)]
+w = LII()
+for _ in range(m):
+    x, y = GMI()
+    g[x].append(y)
+
+scc = find_SCC(g)
+
+ID = [0] * n
+scc_cnt = 0
+for v in scc:
+    for i in v:
+        ID[i] = scc_cnt
+    scc_cnt += 1
+
+
 """"
 inf = float('inf')
 n, m = MII()

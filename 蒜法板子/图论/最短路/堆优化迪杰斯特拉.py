@@ -1,16 +1,14 @@
 """
 # mlogn m:边数， n:点数
 def dijkstra(start, end):
-    s = set()
     dis = [inf] * (n + 1)
     dis[start] = 0
     heap = []
     heappush(heap, (0, start))  # 起始点
     while heap:
         d, node = heappop(heap)   #当前距离， 点
-        if node in s:
+        if dis[node] != inf:
             continue
-        s.add(node)
         for y, w in g[node]:  # 更新所有点
             if dis[y] > d + w:
                 dis[y] = d + w

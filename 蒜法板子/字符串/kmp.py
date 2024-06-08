@@ -1,11 +1,4 @@
-'''
-Descripttion: your project
-version: 1.0
-Author: ElysiaRealme
-Date: 2023-10-16 08:00:54
-LastEditors: ElysiaRealme
-Language: Python
-'''
+
 from typing import *
 
 # 求出模式串 P在字符串 S中所有出现的位置的起始下标。O(n+m)

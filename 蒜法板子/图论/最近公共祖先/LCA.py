@@ -39,8 +39,9 @@ class TreeAncestor:
 
 
         for i in range(m - 1):
-            for x in range(n):   # 下标从1开始记得改这里
-                if (p := fa[x][i]) != -1:
+            for x in range(N):   # 下标从1开始记得改这里
+                p = fa[x][i]
+                if p != -1:
                     fa[x][i + 1] = fa[p][i]
         self.depth = depth
         self.fa = fa

@@ -39,3 +39,16 @@ def find_prime(n):
                 d[m] = d[i] * 2
             j += 1
     
+
+
+def solve(n):
+    phi = [i for i in range(n + 1)]
+    for i in range(2, n + 1):
+        if phi[i] == i:
+            for j in range(i, n + 1, i):
+                phi[j] -= phi[j] // i
+    res = sum(phi[1: n + 1])
+    print(res)
+            
+        
+        
