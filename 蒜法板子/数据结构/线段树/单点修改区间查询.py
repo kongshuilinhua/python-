@@ -14,10 +14,10 @@ class SegmentTree:
     def __delitem__(self, idx):
         self[idx] = self._default
 
-    def __getitem__(self, idx):
+    def get_val(self, idx):
         return self.data[idx + self._size]
 
-    def __setitem__(self, idx, value):
+    def set_val(self, idx, value):
         idx += self._size
         self.data[idx] = value
         idx >>= 1

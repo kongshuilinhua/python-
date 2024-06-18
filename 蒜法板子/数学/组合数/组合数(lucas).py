@@ -1,17 +1,20 @@
 # 用来求单个数据很大的组合数1<=b<=a<=1e18 1<=p<=1e5
 """
-def C(a, b, p):
-    res = 1
-    j = a
-    for i in range(1, b + 1):
-        res = res * j % p
-        res = res * pow(i, p - 2, p) % p
-        j -= 1
-    return res
 
-def lucas(a, b, p):
-    if a < p and b < p:
-        return C(a, b, p)
-    return C(a % p, b % p, p) * lucas(a // p, b // p, p) % p
+def C(n, m, p):
+    if m < 0 or n < m:
+        return 0
+    if m == 0:
+        return 1
+    m = min(m, n - m)
+    a = 1
+    b = 1
+    for i in range(1, m + 1):
+        a = a * (n - i + 1) % p
+        b = (b * i) % p
+    return a * pow(b, p - 2, p) % p
+ 
+def lucas(n, m, p):
+    return C(n % p, m % p, p) * lucas(n // p, m // p, p) % p if m else 1
 
 """

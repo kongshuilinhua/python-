@@ -1,3 +1,4 @@
+# 记得n开两倍 ！！！！(n + m)
 class Factorial:
     def __init__(self, N, mod) -> None:
         self.mod = mod
