@@ -65,3 +65,17 @@ def solve():
     return
 
 """
+# 区间的异或和
+"""
+def get(n):
+    d = [n, 1, n + 1, 0]
+    return d[n % 4]
+def solve():
+    l, r = MII()
+    print(get(r) ^ get(l - 1))
+    return
+"""
+
+# 1~n 中第 k位上1 的个数,0<= n,0 <= k<= 30
+def f(n, k):  
+    return (n + 1) / (1 << k + 1) *(1 << k) + max((n + 1)%(1 <<k+ 1)- (1 <<k),0)

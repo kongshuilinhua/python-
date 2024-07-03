@@ -161,6 +161,23 @@ def divisors(N):
     return sorted(ret)
 
 
+def iii():
+    num = 0
+    neg = False
+    while True:
+        c = sys.stdin.read(1)
+        if c == '-':
+            neg = True
+            continue
+        elif c < '0' or c > '9':
+            continue
+        while True:
+            num = 10 * num + ord(c) - ord('0')
+            c = sys.stdin.read(1)
+            if c < '0' or c > '9':
+                break
+        return -num if neg else num
+
 # sys.setrecursionlimit(int(1e5 + 10))根据需要调整递归深度
 dx, dy = [0, 1, 0, -1, 1, -1, 1, -1], [1, 0, -1, 0, -1, -1, 1, 1]
 inf = float('inf')
