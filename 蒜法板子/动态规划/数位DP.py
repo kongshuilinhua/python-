@@ -77,6 +77,7 @@ while a != 0 and b != 0:
     a, b = map(int, input().split())
     if a > b: a, b = b, a
 
+
 ## v2.0版本，只求个数很方便。
 # 注意，此版本未考虑前导0
 class Solution:

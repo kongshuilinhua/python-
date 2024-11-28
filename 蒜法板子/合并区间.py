@@ -1,8 +1,6 @@
 
 def merge(intervals):
     n = len(intervals)
-    if n <= 1:
-        return intervals
     intervals.sort()
     res = [intervals[0]]
     for i in range(1, n):

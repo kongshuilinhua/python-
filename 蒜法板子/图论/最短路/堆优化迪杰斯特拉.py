@@ -7,7 +7,7 @@ def dijkstra(start, end):
     heappush(heap, (0, start))  # 起始点
     while heap:
         d, node = heappop(heap)   #当前距离， 点
-        if dis[node] != inf:
+        if dis[node] != d:
             continue
         for y, w in g[node]:  # 更新所有点
             if dis[y] > d + w:
