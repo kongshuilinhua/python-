@@ -65,6 +65,32 @@ def solve():
     return
 
 """
+# https://www.marscode.cn/practice/ln2xx0pn0k5rd3?problem_id=7424418560667172908
+# 149小K的区间与值和
+"""
+mod = int(1e9 + 7)
+def solution(n: int, a: list) -> int:
+    res = 0
+    for i in range(32):
+        cnt = 0
+        for j in range(n):
+            if a[j] >> i & 1:      # 当前位是1
+                res += cnt * (n - j) * (1 << i)
+                res %= mod
+                cnt += j + 1
+    return res
+
+
+if __name__ == '__main__':
+    print(solution(4, [2, 3, 1, 2]) == 16)
+    print(solution(3, [5, 6, 7]) == 25)
+    print(solution(2, [1, 10]) == 0)
+    print(solution(5, [1, 2, 4, 8, 16]) == 0)
+
+
+"""
+
+
 # 区间的异或和
 """
 def get(n):

@@ -9,24 +9,13 @@ Language: Python
 from typing import *
 from collections import deque
 
-
-
-# def bit_length(x):
-#     return len(bin(x)) - 2
-N = int(1e4 + 10) 
-g = [[] for _ in range(N)]
+# 下标从0开始
 class TreeAncestor:
-    def __init__(self):
-        m = 16
-        depth = [0] * N
-        fa = [[-1] * m for _ in range(N)]
-        def dfs(x: int, father: int) -> None:
-            fa[x][0] = father
-            for y in g[x]:
-                if y != father:
-                    depth[y] = depth[x] + 1
-                    dfs(y, x)
-        # dfs(0, -1)
+    def __init__(self, g, root=0):
+        n = len(g)
+        m = n.bit_length()
+        depth = [0] * n
+        fa = [[-1] * m for _ in range(n)]
         def bfs(root):
             q = deque([(root, -1, 0)])
             while q:
@@ -37,9 +26,9 @@ class TreeAncestor:
                     if y != father:
                         q.append((y, x, cur_depth + 1))
 
-
+        bfs(root)
         for i in range(m - 1):
-            for x in range(N):   # 下标从1开始记得改这里
+            for x in range(n):   # 下标从1开始记得改这里
                 p = fa[x][i]
                 if p != -1:
                     fa[x][i + 1] = fa[p][i]
@@ -65,4 +54,3 @@ class TreeAncestor:
             if px != py:
                 x, y = px, py  # 同时上跳 2**i 步
         return self.fa[x][0]
-
