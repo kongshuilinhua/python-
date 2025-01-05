@@ -4,8 +4,7 @@
 # 模板 https://www.acwing.com/problem/content/875/
 # 筛法求欧拉函数 https://www.acwing.com/problem/content/876/
 # 应用：n很大的情况，https://www.acwing.com/problem/content/4971/
-def solve():
-    n = int(input())
+def euler_phi(n):
     i = 2
     res = n
     while i * i <= n:
@@ -16,6 +15,4 @@ def solve():
         i += 1
     if n > 1:
         res = res * (n - 1) // n
-    print(res)
-
-    return
+    return res

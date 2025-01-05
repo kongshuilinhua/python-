@@ -3,7 +3,7 @@ inf = float("inf")
 Edge = []  # 存放边
 dist = [inf] * N
 
-# 有边数限制的最短路
+# 有边数限制的最短路  ->求解经过至多k条边的st到ed的最短距离
 def Ballman_Ford():
     dist[1] = 0
     for _ in range(k):

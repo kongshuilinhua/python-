@@ -33,13 +33,13 @@ print(cnt[m])
 """
 n, m = MII()
 v, w = [0] * (n + 2), [0] * (n + 2)
-for i in range(1, n + 1):  # 为了方便写，下标是从1开始的
+for i in range(1, n + 1):  # 为了方便写,下标是从1开始的
     v[i], w[i] = MII()
 f = [[0] * (m + 2) for _ in range(n + 2)]
 for i in range(n, -1, -1):
     for j in range(m + 1):
         f[i][j] = f[i + 1][j]
-        if j >= v[i]:  # 装得下物品，装or不装取max
+        if j >= v[i]:  # 装得下物品,装or不装取max
             f[i][j] = max(f[i][j], f[i + 1][j - v[i]] + w[i])
 j = m
 for i in range(1, n + 1):  # 优先取小的

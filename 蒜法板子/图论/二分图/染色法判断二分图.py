@@ -19,6 +19,7 @@ for _ in range(m):
     a, b = map(int, input().split())
     g[a].append(b)
     g[b].append(a)
+    
 flag = True
 for i in range(1, n + 1):
     if not color[i]:  # 未染色

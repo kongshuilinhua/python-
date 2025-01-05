@@ -20,11 +20,15 @@ class Manacher:
         self.string = string
 
     def add_char(self):
-        add_string = '^'
+        add_string = ['^']
         for char in self.string:
-            add_string += '@' + char
-        add_string += '@*'
-        return add_string
+            # add_string += '@' + char
+            add_string.append('@')
+            add_string.append(char)
+        # add_string += '@*'
+        add_string.append('@')
+        add_string.append('*')
+        return "".join(add_string)
     
     def get_p(self): 
         self.add_string = self.add_char()
