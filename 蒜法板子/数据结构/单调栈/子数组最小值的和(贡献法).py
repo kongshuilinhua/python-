@@ -39,7 +39,7 @@ def sumSubarrayMaxs(arr: List[int]) -> int:  # 计算每个数字作为最大值
     left, right = [-1] * n, [n] * n
     st = []
     for i, x in enumerate(arr):
-        while st and arr[st[-1]] <= x:  # 左边是大于   
+        while st and arr[st[-1]] > x:  # 左边是大于   
             right[st.pop()] = i   # # i恰好是栈顶的右边界
         if st:
             left[i] = st[-1]
