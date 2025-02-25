@@ -1,22 +1,14 @@
-import sys
-import os
-
-# import time
+from sys import stdin, setrecursionlimit
 from bisect import bisect_left, bisect_right
-# import functools
 from math import ceil, floor, gcd, factorial, sqrt, log2, log
-import random
-# import re
 from collections import Counter, defaultdict, deque
-# from copy import deepcopy
-from functools import cmp_to_key, lru_cache, reduce
-from heapq import heapify, heappop, heappush, heappushpop, nlargest, nsmallest
+from functools import lru_cache, reduce
+from heapq import heapify, heappop, heappush, heappushpop
 from itertools import accumulate, combinations, permutations
-from operator import add, iand, ior, itemgetter, mul, xor
+from operator import add, iand, ior, mul, xor
 from string import ascii_lowercase, ascii_uppercase
-from typing import *
 
-input = lambda: sys.stdin.readline().rstrip("\r\n")
+input = lambda: stdin.readline().rstrip("\r\n")
 
 # --------------------
 # 手写栈模板
@@ -165,7 +157,7 @@ def iii():
     num = 0
     neg = False
     while True:
-        c = sys.stdin.read(1)
+        c = stdin.read(1)
         if c == '-':
             neg = True
             continue
@@ -173,20 +165,20 @@ def iii():
             continue
         while True:
             num = 10 * num + ord(c) - ord('0')
-            c = sys.stdin.read(1)
+            c = stdin.read(1)
             if c < '0' or c > '9':
                 break
         return -num if neg else num
 
-# sys.setrecursionlimit(int(1e5 + 10))根据需要调整递归深度
+# setrecursionlimit(int(1e5 + 10))#根据需要调整递归深度
 dx, dy = [0, 1, 0, -1, 1, -1, 1, -1], [1, 0, -1, 0, -1, -1, 1, 1]
 inf = float('inf')
+# import random
 # RANDOM = random.randint(int(1e9 + 7), int(2e9 + 7)) # 防止卡哈希
 mod = int(1e9 + 7)
 # mod = 998244353
 
 def solve():
-
 
     return
 
