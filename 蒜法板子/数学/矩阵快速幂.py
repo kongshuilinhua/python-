@@ -89,3 +89,12 @@ def mat_inv(A):
         for j in range(n):
             B[col[i]][col[j]] = tmp[i][j]
     return B
+# 斐波那契数列
+if n <= 2:
+    print(1)
+else:
+    # [F(n), F(n-1)] = [[1,1],[1,0]] * [F(n-1), F(n-2)]
+    # res = F(1)a[0][0] + F(0)a[0][1]
+    mat = [[1, 1], [1, 0]]
+    a = mat_pow(mat, n - 1)
+    print(a[0][0])

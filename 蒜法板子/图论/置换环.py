@@ -1,4 +1,4 @@
-https://leetcode.cn/problems/minimum-number-of-operations-to-sort-a-binary-tree-by-level/description/
+# https://leetcode.cn/problems/minimum-number-of-operations-to-sort-a-binary-tree-by-level/description/
 def min_swaps(arr):
     n = len(arr)
     arrPos = [*enumerate(arr)]

@@ -15,6 +15,7 @@ for i in range(1, len(s2) - 1):
         mid = i
 print(max(P) - 1)
 
+# add_string = "^@a@b@a@c@a@b@a@*"
 class Manacher:
     def __init__(self, string=''):
         self.string = string
@@ -29,7 +30,7 @@ class Manacher:
         add_string.append('@')
         add_string.append('*')
         return "".join(add_string)
-    
+    # add_string = "^@a@b@a@c@a@b@a@*"  2 4 6 8 10 对应字符为中心的最长回文子串的长度
     def get_p(self): 
         self.add_string = self.add_char()
         self.P = [0] * len(self.add_string)

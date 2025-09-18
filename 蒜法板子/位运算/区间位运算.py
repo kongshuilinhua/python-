@@ -4,6 +4,30 @@ def rangeBitwiseAnd(left: int, right: int) -> int:
         right &= (right - 1)
     return right
 
+# https://leetcode.cn/problems/number-of-subarrays-with-gcd-equal-to-k/
+class Solution:
+    def subarrayGCD(self, nums: List[int], target: int) -> int:
+        t = []
+        n = len(nums)
+        res = 0
+        for i in range(n):
+            for p in t:
+                p[0] = gcd(p[0], nums[i])
+            t.append([nums[i], i])  # 当前的gcd + 对应子数组的左端点
+            idx = 1
+            # 原地去重
+            for j in range(1, len(t)):
+                if t[j - 1][0] != t[j][0]:
+                    t[idx] = t[j]
+                    idx += 1
+            del t[idx:]
+            for k, (g, left) in enumerate(t):  # g是当前的gcd，[left, right]是对应子数组的左端点, i是右端点
+                right = t[k + 1][1] - 1 if k + 1 < len(t) else i
+                if g == target:
+                    res += right - left + 1
+        return res
+
+
 # 2411. 按位或最大的最小子数组长度
 # https://leetcode.cn/problems/smallest-subarrays-with-maximum-bitwise-or/description/
 from typing import List

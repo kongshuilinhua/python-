@@ -1,66 +1,4 @@
-'''
-Descripttion: your project
-version: 1.0
-Author: ElysiaRealme
-Date: 2023-10-23 10:54:34
-LastEditors: ElysiaRealme
-Language: Python
-'''
-from io import BytesIO, IOBase
-import sys
-import os
-
-# import time
-import bisect
-# import functools
-import math
-import random
-# import re
-from collections import Counter, defaultdict, deque
-# from copy import deepcopy
-from functools import cmp_to_key, lru_cache, reduce
-from heapq import heapify, heappop, heappush, heappushpop, nlargest, nsmallest
-from itertools import accumulate, combinations, permutations
-# from operator import add, iand, ior, itemgetter, mul, xor
-# from string import ascii_lowercase, ascii_uppercase
-from typing import *
-
-input = lambda: sys.stdin.readline().rstrip("\r\n")
-
-
-def I():
-    return input()
-
-
-def II():
-    return int(input())
-
-
-def MII():
-    return map(int, input().split())
-
-
-def LI():
-    return list(input().split())
-
-
-def LII():
-    return list(map(int, input().split()))
-
-
-def GMI():
-    return map(lambda x: int(x) - 1, input().split())
-
-
-def LGMI():
-    return list(map(lambda x: int(x) - 1, input().split()))
-
-
-dx, dy = [0, 1, 0, -1, 1, -1, 1, -1], [1, 0, -1, 0, -1, -1, 1, 1]
-inf = float('inf')
-
 from bisect import *
-
 
 class BIT:
     def __init__(self, n):
@@ -75,7 +13,7 @@ class BIT:
             self.tree[i] += val
             i += self.lowbit(i)
 
-    # 返回arr[:i+1]的sum
+    # 返回arr[:i]的sum
     def query(self, i):
         res = 0
         while i > 0:

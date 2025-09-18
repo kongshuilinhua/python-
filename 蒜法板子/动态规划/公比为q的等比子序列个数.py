@@ -1,4 +1,6 @@
-# https://ac.nowcoder.com/acm/contest/95118/D
+# https://ac.nowcoder.com/acm/contest/95118/D   等比子序列
+# https://atcoder.jp/contests/abc362/tasks/abc362_e  等差子序列的个数
+# https://atcoder.jp/contests/abc369/tasks/abc369_c
 """
 def solve():
     n = II()

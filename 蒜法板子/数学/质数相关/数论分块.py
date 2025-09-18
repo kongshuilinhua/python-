@@ -11,7 +11,7 @@ def solve():
     res = 0
     while i <= n:
         x = n // i       # 块内相同的值的个数
-        y = n // x       # 块内的值，也就是当前块的右边界
+        y = n // x       # n/x当前块的右边界
         res += (calc(y) - calc(i - 1)) * x  # 当前块的左边界就是上一个的右边界       # 连续块的值 * 块的个数
         res %= mod
         i = y + 1

@@ -1,5 +1,4 @@
 
-
 # https://www.acwing.com/solution/content/1393/  这篇题解帮助理解证明
 # 裴蜀定理：对于任意的整数a,b,存在整数x,y使得ax+by=gcd(a,b) 并且gcd(a, b)是ax+by的因子
 # 推广ax+by=n*gcd(a,b)也成立

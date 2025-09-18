@@ -15,6 +15,14 @@ def find(n):
     return prime
 
 n = int(input())
+# n的阶乘中某个素因子p的个数
+def multiplicity_factorial(n, p):
+    cnt = 0
+    while n:
+        n //= p
+        cnt += n
+    return cnt
+
 
 prime = find(n)  # 直接枚举
 for i in prime:
@@ -24,3 +32,5 @@ for i in prime:
         res += n // j
         j *= i
     print(i, res)
+
+
