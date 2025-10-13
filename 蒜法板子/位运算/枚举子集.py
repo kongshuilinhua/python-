@@ -12,3 +12,4 @@ def subset(nums):
         sub = (sub - 1) & s
         res.append(bits_mapping(sub))
     return res
+
