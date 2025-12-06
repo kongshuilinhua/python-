@@ -2,8 +2,10 @@
 #https://acm.hdu.edu.cn/showproblem.php?pid=3949
 #https://www.luogu.com.cn/problem/P3857
 #https://www.luogu.com.cn/problem/P3812
-from typing import List
+#https://atcoder.jp/contests/typical90/tasks/typical90_be
 
+from math import inf
+from typing import List
 
 class LinearBasis:
     MAXB = 60
@@ -51,7 +53,7 @@ class LinearBasis:
     def rank(self, v: int, empty: bool = True) -> int:
         """
         返回 v 在所有不同异或和按从小到大排序中的 0-based rank。
-        返回 -1 表示 v 无法由（对应集合的）子集异或得到。
+        返回 inf 表示 v 无法由（对应集合的）子集异或得到。
         """
         t = v
         idx = 0
