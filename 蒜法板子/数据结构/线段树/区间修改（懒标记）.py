@@ -63,7 +63,7 @@ class LazySegmentTree:
         return self._update(1, 1, self.n, l, r, val)
 
 
-class LazySegTree():
+class LazySegTree:
     """
         V:  初始序列，树叶节点
         OP: 左右节点之间的合并操作
