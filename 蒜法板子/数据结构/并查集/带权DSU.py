@@ -30,6 +30,29 @@ class DisjointSetUnion:
         return self.num_sets
 
 
+# 用向量的方式来维护距离，适合于有权并查集
+class UnionFind:
+    def __init__(self, n):
+        self.p = list(range(n))
+        self.dis = [0] * n
+
+    def find(self, x):
+        p = self.p
+        if x != p[x]:
+            root = self.find(p[x])
+            self.dis[x] += self.dis[p[x]]
+            p[x] = root
+        return p[x]
+
+    def merge(self, u, v, w):
+        a, b = self.find(u), self.find(v)
+        dis = self.dis
+        if a == b:
+            return (dis[u] - dis[v]) % 2 == w
+        dis[a] = -dis[u] + w + dis[v]
+        self.p[a] = b
+        return True
+
 # 可以看食物链这道题
 """
 N = int(2e5 + 10)
@@ -57,3 +80,5 @@ for i in range(1, q + 1):
 print(*res)
 
 """
+
+

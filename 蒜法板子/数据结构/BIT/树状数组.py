@@ -51,7 +51,7 @@ class BIT:
             self.tree[i] += val
             i += self.lowbit(i)
 
-    # 返回arr[:i+1]的sum
+    # 返回arr[:i]的sum
     def query(self, i):
         res = 0
         while i > 0:
